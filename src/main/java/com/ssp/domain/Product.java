@@ -12,9 +12,9 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column(name = "tickerSymbol", nullable = false)
+	@Column(name = "ticker_Symbol", nullable = false)
 	private String tickerSymbol;
-	@Column(name = "tickerName", nullable = false)
+	@Column(name = "ticker_Name", nullable = false)
 	private String tickerName;
 
 	public Product() {

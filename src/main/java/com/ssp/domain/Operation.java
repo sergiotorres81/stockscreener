@@ -19,10 +19,10 @@ public class Operation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@Column(name = "date", nullable = false)
-	private Date date;
+	@Column(name = "operation_date", nullable = false)
+	private Date operationDate;
 	@OneToOne
-	@JoinColumn(name = "id", nullable = false)
+	@JoinColumn(name = "product_id", nullable = false)
 	private Product product;
 	@Column(name = "price", nullable = false)
 	private Double price;
@@ -32,10 +32,9 @@ public class Operation {
 	private Double commission;
 	@Column(name = "currency", nullable = false)
 	private String currency;
-	@Column(name = "type", nullable = false)
-	private String type; // BUY/SELL/DIVIDEND/SCRIP
-
-	@ManyToOne(fetch = FetchType.EAGER)
+	@Column(name = "operation_type", nullable = false)
+	private String operationType; // BUY/SELL/DIVIDEND/SCRIP
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "portfolio_id")
 	private Portfolio portfolio;
 
@@ -56,34 +55,20 @@ public class Operation {
 		this.id = id;
 	}
 
+
 	/**
-	 * @return the date
+	 * @return the operationDate
 	 */
-	public Date getDate() {
-		return date;
+	public Date getOperationDate() {
+		return operationDate;
 	}
 
 	/**
-	 * @param date the date to set
+	 * @param operationDate
+	 *            the operationDate to set
 	 */
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-
-	/**
-	 * @return the product
-	 */
-	public Product getProduct() {
-		return product;
-	}
-
-	/**
-	 * @param product
-	 *            the product to set
-	 */
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setOperationDate(Date operationDate) {
+		this.operationDate = operationDate;
 	}
 
 	/**
@@ -128,18 +113,20 @@ public class Operation {
 		this.commission = commission;
 	}
 
+
 	/**
-	 * @return the type
+	 * @return the operationType
 	 */
-	public String getType() {
-		return type;
+	public String getOperationType() {
+		return operationType;
 	}
 
 	/**
-	 * @param type the type to set
+	 * @param operationType
+	 *            the operationType to set
 	 */
-	public void setType(String type) {
-		this.type = type;
+	public void setOperationType(String operationType) {
+		this.operationType = operationType;
 	}
 
 	/**
@@ -158,25 +145,56 @@ public class Operation {
 	}
 
 	/**
-	 * @param date
+	 * @return the product
+	 */
+	public Product getProduct() {
+		return product;
+	}
+
+	/**
 	 * @param product
+	 *            the product to set
+	 */
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	/**
+	 * @return the portfolio
+	 */
+	public Portfolio getPortfolio() {
+		return portfolio;
+	}
+
+	/**
+	 * @param portfolio
+	 *            the portfolio to set
+	 */
+	public void setPortfolio(Portfolio portfolio) {
+		this.portfolio = portfolio;
+	}
+
+	/**
+	 * @param date
 	 * @param price
 	 * @param quantity
 	 * @param commission
 	 * @param currency
 	 * @param type
+	 * @param product
 	 * @param portfolio
 	 */
-	public Operation(Date date, Product product, Double price, Long quantity, Double commission, String currency,
-			String type, Portfolio portfolio) {
+	public Operation(Date operation_date, Double price, Long quantity, Double commission,
+ String currency,
+			String operationType, Product product, Portfolio portfolio) {
 		super();
-		this.date = date;
-		this.product = product;
+		this.operationDate = operation_date;
 		this.price = price;
 		this.quantity = quantity;
 		this.commission = commission;
 		this.currency = currency;
-		this.type = type;
+		this.operationType = operationType;
+		this.product = product;
 		this.portfolio = portfolio;
 	}
 
