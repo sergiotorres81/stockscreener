@@ -1,4 +1,4 @@
-package com.ssp.configuration;
+package com.ssr.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

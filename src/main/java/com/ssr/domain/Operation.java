@@ -1,4 +1,4 @@
-package com.ssp.domain;
+package com.ssr.domain;
 
 
 import java.util.Date;

@@ -1,8 +1,8 @@
-package com.ssp.repository;
+package com.ssr.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.ssp.domain.Portfolio;
+import com.ssr.domain.Portfolio;
 
 public interface PortfolioRepository extends JpaRepository<Portfolio, Long> {
 

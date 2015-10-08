@@ -1,8 +1,8 @@
-package com.ssp.repository;
+package com.ssr.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.ssp.domain.Product;
+import com.ssr.domain.Product;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
 

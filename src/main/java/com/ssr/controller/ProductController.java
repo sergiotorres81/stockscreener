@@ -1,4 +1,4 @@
-package com.ssp.controller;
+package com.ssr.controller;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ssp.domain.Product;
-import com.ssp.repository.ProductRepository;
+import com.ssr.domain.Product;
+import com.ssr.repository.ProductRepository;
 
 @RestController
 public class ProductController {
