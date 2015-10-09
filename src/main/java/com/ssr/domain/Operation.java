@@ -13,27 +13,38 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Operation {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+
 	@Column(name = "operation_date", nullable = false)
 	private Date operationDate;
+
 	@OneToOne
 	@JoinColumn(name = "product_id", nullable = false)
 	private Product product;
+
 	@Column(name = "price", nullable = false)
 	private Double price;
+
 	@Column(name = "quantity", nullable = false)
 	private Long quantity;
+
 	@Column(name = "commission", nullable = false)
 	private Double commission;
+
 	@Column(name = "currency", nullable = false)
 	private String currency;
+
 	@Column(name = "operation_type", nullable = false)
 	private String operationType; // BUY/SELL/DIVIDEND/SCRIP
+
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "portfolio_id")
 	private Portfolio portfolio;

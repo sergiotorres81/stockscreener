@@ -1,10 +1,15 @@
 package com.ssr.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class User {
@@ -16,8 +21,9 @@ public class User {
 	@Column(name = "email", nullable = false)
 	private String email;
 
-	// @OneToMany(mappedBy = "user")
-	// private List<Portfolio> portfolioList;
+	@JsonIgnore
+	@OneToMany(mappedBy = "user")
+	private List<Portfolio> portfolioList;
 
 	/**
 	 * @return the id
@@ -47,6 +53,21 @@ public class User {
 	 */
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	/**
+	 * @return the portfolioList
+	 */
+	public List<Portfolio> getPortfolioList() {
+		return portfolioList;
+	}
+
+	/**
+	 * @param portfolioList
+	 *            the portfolioList to set
+	 */
+	public void setPortfolioList(List<Portfolio> portfolioList) {
+		this.portfolioList = portfolioList;
 	}
 
 }

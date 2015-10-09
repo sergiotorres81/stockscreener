@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Portfolio {
 
@@ -21,12 +23,17 @@ public class Portfolio {
 	@Column(name = "name", nullable = false)
 	private String name;
 
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "user_id", nullable = false)
 	private User user;
 
+	@Column(name = "visibility", nullable = false)
+	private String visibility;
+
+	@JsonIgnore
 	@OneToMany(mappedBy = "portfolio")
-	private List<Operation> operationList;
+	private List<Operation> operations;
 
 	/**
 	 * 
@@ -76,16 +83,16 @@ public class Portfolio {
 	/**
 	 * @return the operationList
 	 */
-	public List<Operation> getOperationList() {
-		return operationList;
+	public List<Operation> getOperations() {
+		return operations;
 	}
 
 	/**
 	 * @param operationList
 	 *            the operationList to set
 	 */
-	public void setOperationList(List<Operation> operationList) {
-		this.operationList = operationList;
+	public void setOperationList(List<Operation> operations) {
+		this.operations = operations;
 	}
 
 	/**
@@ -101,6 +108,21 @@ public class Portfolio {
 	 */
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	/**
+	 * @return the visibility
+	 */
+	public String getVisibility() {
+		return visibility;
+	}
+
+	/**
+	 * @param visibility
+	 *            the visibility to set
+	 */
+	public void setVisibility(String visibility) {
+		this.visibility = visibility;
 	}
 
 }
