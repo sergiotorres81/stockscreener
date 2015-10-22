@@ -17,18 +17,10 @@ public class Product {
 	@Column(name = "ticker_Name", nullable = false)
 	private String tickerName;
 
-	public Product() {
-	}
+	@Column(name = "market", nullable = false)
+	private String market;
 
-	/**
-	 * @param id
-	 * @param tickerSymbol
-	 * @param tickerName
-	 */
-	public Product(String tickerSymbol, String tickerName) {
-		super();
-		this.tickerSymbol = tickerSymbol;
-		this.tickerName = tickerName;
+	public Product() {
 	}
 
 	/**
@@ -74,6 +66,21 @@ public class Product {
 	 */
 	public void setTickerName(String tickerName) {
 		this.tickerName = tickerName;
+	}
+
+	/**
+	 * @return the market
+	 */
+	public String getMarket() {
+		return market;
+	}
+
+	/**
+	 * @param market
+	 *            the market to set
+	 */
+	public void setMarket(String market) {
+		this.market = market;
 	}
 
 }
