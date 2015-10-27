@@ -1,4 +1,4 @@
-package com.ssp;
+package com.ssr;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
