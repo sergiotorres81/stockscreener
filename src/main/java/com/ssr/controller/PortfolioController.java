@@ -30,7 +30,7 @@ public class PortfolioController {
 		return portfolioService.findByName(name).getOperations();
 	}
 
-	@RequestMapping(value = "/api/portfoliosRV/{portfolio}/products", method = RequestMethod.GET)
+	@RequestMapping(value = "/api/portfolios/{portfolio}/products", method = RequestMethod.GET)
 	public Set<Product> findPortfolioProducts(@PathVariable("portfolio") String portfolio) {
 		return portfolioService.findDistinctOperationProductyByPorfolio(portfolio);
 	}

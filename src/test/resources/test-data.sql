@@ -1,3 +1,11 @@
+-- Need to clean DB because, Spring is runningn data.sql from src/main/resources
+delete from operation;
+delete from portfolio;
+delete from client;
+delete from product;
+
+
+-- Test script CANNOT be empty. 
 -- PRODUCTS
 insert into product (ticker_symbol, ticker_name, market) values ('ENA', 'Enagas', 'MC');
 insert into product (ticker_symbol, ticker_name, market) values ('SAN', 'Banco Santander', 'MC');

@@ -25,8 +25,8 @@ public class Portfolio {
 
 	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name = "user_id", nullable = false)
-	private User user;
+	@JoinColumn(name = "client_id", nullable = false)
+	private Client client;
 
 	@Column(name = "visibility", nullable = false)
 	private String visibility;
@@ -95,19 +95,20 @@ public class Portfolio {
 		this.operations = operations;
 	}
 
+
 	/**
-	 * @return the user
+	 * @return the client
 	 */
-	public User getUser() {
-		return user;
+	public Client getClient() {
+		return client;
 	}
 
 	/**
-	 * @param user
-	 *            the user to set
+	 * @param client
+	 *            the client to set
 	 */
-	public void setUser(User user) {
-		this.user = user;
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
 	/**
