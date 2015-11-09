@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.ssp</groupId>
+	<groupId>com.ssr</groupId>
 	<artifactId>stockScreenerRepo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
@@ -80,7 +80,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-log4j2</artifactId>
 		</dependency>
-		
+		<dependency>
+			<groupId>org.trc</groupId>
+			<artifactId>trace</artifactId>
+			<version>0.0.2</version>
+		</dependency>
 	</dependencies>
 	
 	<build>
