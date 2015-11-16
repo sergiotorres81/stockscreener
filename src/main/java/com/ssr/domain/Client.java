@@ -23,7 +23,7 @@ public class Client {
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "client")
-	private List<Portfolio> portfolioList;
+	private List<Portfolio> portfolios;
 
 	/**
 	 * @return the id
@@ -56,18 +56,19 @@ public class Client {
 	}
 
 	/**
-	 * @return the portfolioList
+	 * @return the portfolios
 	 */
-	public List<Portfolio> getPortfolioList() {
-		return portfolioList;
+	public List<Portfolio> getPortfolios() {
+		return portfolios;
 	}
 
 	/**
-	 * @param portfolioList
-	 *            the portfolioList to set
+	 * @param portfolios
+	 *            the portfolios to set
 	 */
-	public void setPortfolioList(List<Portfolio> portfolioList) {
-		this.portfolioList = portfolioList;
+	public void setPortfolios(List<Portfolio> portfolios) {
+		this.portfolios = portfolios;
 	}
+
 
 }

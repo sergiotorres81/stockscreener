@@ -15,6 +15,7 @@ import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 @Entity
 public class Operation {
 
@@ -44,9 +45,18 @@ public class Operation {
 	@Column(name = "operation_type", nullable = false)
 	private String operationType; // BUY/SELL/DIVIDEND/SCRIP
 
+	// Note: don't like to use eager, but I couldn't get rid of this exception:
+	// {
+	// "cause": null,
+	// "message":
+	// "Id must be assignable to Serializable! Object of class [null] must be an instance of interface java.io.Serializable"
+	// }
+	// It is a documented issue, find below another possible workaround
+	// https://jira.spring.io/si/jira.issueviews:issue-html/DATAJPA-630/DATAJPA-630.html
+
 	@JsonIgnore
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "portfolio_id")
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "portfolio_id", nullable = false)
 	private Portfolio portfolio;
 
 	public Operation() {
