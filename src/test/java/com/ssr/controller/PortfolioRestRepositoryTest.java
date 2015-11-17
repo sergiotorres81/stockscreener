@@ -13,6 +13,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -21,7 +22,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 import com.ssr.StockscreenerApplication;
 
-//@Sql("classpath:test-data.sql")
+@Sql("classpath:test-data.sql")
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = StockscreenerApplication.class)
 @WebAppConfiguration
@@ -49,7 +50,12 @@ public class PortfolioRestRepositoryTest {
 	}
 
 	@Test
-	public void portfolioFoundByName() throws Exception {
+	public void portfolioNotFound() throws Exception {
+		mockMvc.perform(get("/portfolios/2")).andExpect(status().isNotFound());
+	}
+
+	@Test
+	public void portfolioFoundById() throws Exception {
 		mockMvc.perform(get("/portfolios/1")).andExpect(status().isOk()).andExpect(content().contentType(mediaType))
 				.andExpect(jsonPath("$.name", Matchers.startsWith("RV_Spain")));
 	}
