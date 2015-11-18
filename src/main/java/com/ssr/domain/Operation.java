@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
@@ -219,6 +221,17 @@ public class Operation {
 		this.portfolio = portfolio;
 	}
 
-	
+	public String toString(){
+		return new ToStringBuilder(this).
+			       append("id", id).
+			       append("operationDate", operationDate).
+			       append("price", price).
+			       append("quantity", quantity).
+			       append("commission", commission).
+			       append("operationType", operationType).
+			       append("currency", currency).
+			       append("product", product).
+			       toString();
+	}
 	
 }

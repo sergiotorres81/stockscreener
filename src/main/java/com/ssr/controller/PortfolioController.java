@@ -1,5 +1,6 @@
 package com.ssr.controller;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,12 +27,14 @@ public class PortfolioController {
 	}
 
 	@RequestMapping(value = "/api/portfolios/{name}/operations", method = RequestMethod.GET)
-	public Iterable<Operation> findPortfolioOperations(@PathVariable("name") String name) {
+	public List<Operation> findPortfolioOperations(
+			@PathVariable("name") String name) {
 		return portfolioService.findByName(name).getOperations();
 	}
 
 	@RequestMapping(value = "/api/portfolios/{portfolio}/products", method = RequestMethod.GET)
-	public Set<Product> findPortfolioProducts(@PathVariable("portfolio") String portfolio) {
+	public Set<Product> findPortfolioProducts(
+			@PathVariable("portfolio") String portfolio) {
 		return portfolioService.findDistinctOperationProductyByPorfolio(portfolio);
 	}
 

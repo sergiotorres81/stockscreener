@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
@@ -127,4 +129,14 @@ public class Portfolio {
 		this.visibility = visibility;
 	}
 
+	public String toString(){
+		return new ToStringBuilder(this).
+			       append("id", id).
+			       append("name", name).
+			       append("visibility", visibility).
+			       append("operations",operations).
+			       append("client", client).
+			       toString();
+	}
+	
 }

@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 @Entity
 public class Product {
 	@Id
@@ -81,6 +83,15 @@ public class Product {
 	 */
 	public void setMarket(String market) {
 		this.market = market;
+	}
+	
+	public String toString(){
+		return new ToStringBuilder(this).
+			       append("id", id).
+			       append("tickerSymbol", tickerSymbol).
+			       append("tickerName", tickerName).
+			       append("market", market).
+			       toString();
 	}
 
 }

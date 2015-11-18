@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -68,6 +70,13 @@ public class Client {
 	 */
 	public void setPortfolios(List<Portfolio> portfolios) {
 		this.portfolios = portfolios;
+	}
+	
+	public String toString(){
+		return new ToStringBuilder(this).
+			       append("id", id).
+			       append("email", email).
+			       toString();
 	}
 
 
